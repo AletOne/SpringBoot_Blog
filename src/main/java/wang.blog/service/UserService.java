@@ -27,11 +27,11 @@ public class UserService {
         Map<String, String> map = new HashMap<>();
         Random random = new Random();
         if(username == null || username.equals("")){
-            map.put("msg", "username cannot be null or empty");
+            map.put("msg", "Username cannot be null or empty");
             return map;
         }
         if(password == null || password.equals("")){
-            map.put("msg", "password cannot be empty");
+            map.put("msg", "Password cannot be empty");
             return map;
         }
         if(userDAO == null){
@@ -40,7 +40,7 @@ public class UserService {
 
         User u = userDAO.selectByName(username);
         if(u != null){
-            map.put("msg", "user existed!");
+            map.put("msg", "User existed!");
             return map;
         }
 
@@ -62,11 +62,11 @@ public class UserService {
         Map<String, String> map = new HashMap<>();
         Random random = new Random();
         if(username == null || username.equals("")){
-            map.put("msg", "username cannot be null or empty");
+            map.put("msg", "Username cannot be null or empty");
             return map;
         }
         if(password == null || password.equals("")){
-            map.put("msg", "password cannot be empty");
+            map.put("msg", "Password cannot be empty");
             return map;
         }
 
@@ -75,17 +75,18 @@ public class UserService {
         }
         User u = userDAO.selectByName(username);
         if(u == null){
-            map.put("msg", "user doesn't exist!");
+            map.put("msg", "User doesn't exist!");
             return map;
         }
 
         String md5 = DigestUtils.md5DigestAsHex((password + "/" + u.getSalt()).getBytes());
         if(!md5.equals(u.getPassword())){
-            map.put("msg", "Incorrect password!");
+            map.put("msg", "Incorrect password Or username!");
             return map;
         }
 
         String ticket = addLoginTicket(u.getId());
+        System.out.println("ticket: " + ticket);
         map.put("ticket", ticket);
         return map;
     }
