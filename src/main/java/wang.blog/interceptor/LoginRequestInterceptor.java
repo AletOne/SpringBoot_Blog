@@ -3,6 +3,7 @@ package wang.blog.interceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
 import wang.blog.model.HostHolder;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,16 @@ public class LoginRequestInterceptor implements HandlerInterceptor {
             response.sendRedirect("/login");
         }
         return true;
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
+
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
+
     }
 
 }

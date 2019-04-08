@@ -1,10 +1,12 @@
 package wang.blog.dao;
 
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 import wang.blog.model.Article;
 
 import java.util.List;
-
+ 
+@Repository
 @Mapper
 public interface ArticleDAO {
     String TABLE_NAME = "article";
@@ -25,6 +27,9 @@ public interface ArticleDAO {
 
     @Select({"select count(id) from", TABLE_NAME})
     int countOfArticles();
+
+    @Select({"select count(id) from", TABLE_NAME, "where category=#{category}"})
+    int getCountByCategory(@Param("category") String category);
 
     @Update({"update",TABLE_NAME,"set comment_count = #{commentCount} where id = #{questionId}"})
     void updateCommentCount(@Param("questionId") int questionId,@Param("commentCount") int commentCount);

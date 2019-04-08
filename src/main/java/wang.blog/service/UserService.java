@@ -108,4 +108,8 @@ public class UserService {
         loginTicketDAO.insertLoginTicket(loginTicket);
         return loginTicket.getTicket();
     }
+
+    public void logout(String ticket){
+        loginTicketDAO.updateStatus(ticket, 1);
+    }
 }

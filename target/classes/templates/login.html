@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-CN"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       class="is-AppPromotionBarVisible cssanimations csstransforms csstransitions flexbox no-touchevents no-mobile">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,7 +16,11 @@
     <div class="index-main-body">
         <div class="index-header">
             <h2 class="subtitle">
+                #if($msg)
+                $!{msg}
+                #else
                 探讨知识，分享见解
+                #end
             </h2>
         </div>
         <div class="desk-front sign-flow clearfix sign-flow-simple">
@@ -31,9 +33,6 @@
                         </div>
                         <div class="input-wrapper">
                             <input type="password" name="password" aria-label="密码" placeholder="密码" required="">
-                        </div>
-                        <div>
-                            <p style="color:red" th:if="${msg}" th:text="${msg}"></p>
                         </div>
                     </div>
                     <input type="hidden" name="next" value="$!{next}"/>
