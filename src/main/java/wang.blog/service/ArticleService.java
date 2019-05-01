@@ -3,6 +3,7 @@ package wang.blog.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wang.blog.dao.ArticleDAO;
+import wang.blog.dao.ArticleTagDAO;
 import wang.blog.model.Article;
 
 import java.util.List;
@@ -11,6 +12,9 @@ import java.util.List;
 public class ArticleService {
     @Autowired
     private ArticleDAO articleDAO;
+
+    @Autowired
+    private ArticleTagDAO articleTagDAO;
 
     public int addArticle(Article article){
         return articleDAO.insertArticle(article);
@@ -32,11 +36,19 @@ public class ArticleService {
         return articleDAO.selectLatestArticle(offset, limit);
     }
 
-    public List<Article> getArticlesByCategory(String category){
-        return articleDAO.selectArticlesByCategory(category);
+    public List<Article> getArticlesByCategory(String category, int offset, int limit){
+        return articleDAO.selectArticlesByCategory(category, offset, limit);
+    }
+
+    public List<Article> getArticleByTag(int tagId, int offset, int limit){
+        return articleTagDAO.selectByTagId(tagId, offset, limit);
     }
 
     public void updateCommentCount(int id, int count){
         articleDAO.updateCommentCount(id, count);
+    }
+
+    public int getArticleCountByTag(int tagId){
+        return articleTagDAO.selectArticleCountByTagId(tagId);
     }
 }

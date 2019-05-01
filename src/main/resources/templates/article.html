@@ -11,7 +11,7 @@
 </head>
 <body>
 <header class="row">
-  <div class="col-md-2 col-md-offset-2 row logo"><a href="/index">tuzhenyu</a></div>
+  <div class="col-md-2 col-md-offset-2 row logo"><a href="/index">$!{username}</a></div>
   <div class="col-md-5 col-md-offset-3 navigation">
     <ul class="row">
       <li class="col-md-2"><a id="home" href="/index"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
@@ -19,8 +19,9 @@
       <li class="col-md-2"><a id="life" href="/about"><i class="fa fa-heart" aria-hidden="true"></i>About</a></li>
       <li class="col-md-2"><a id="about" href="/links"><i class="fa fa-th-large" aria-hidden="true"></i>Links</a></li>
       #if($create > 0)
-      <li class="col-md-2"><a id="create" href="/create"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
+      <li class="col-md-2"><a id="create" href="/create"><i class="fa fa-plus-circle" aria-hidden="true"></i>New</a></li>
       #end
+        <li class="col-md-2"><a id="logout" href="/logout"><i class="fa fa-close" aria-hidden="true">Logout</i></a> </li>
     </ul>
   </div>
 </header>
@@ -31,7 +32,7 @@
         <h1>$!{article.title}</h1>
         <div class="articleFooter articleHead">
           <ul>
-            <li><i class="fa fa-calendar fa-1x" aria-hidden="true"></i><span>$date.format('yyyy-MM-dd', $!{article.createdDate})</span></li>
+            <li><i class="fa fa-calendar fa-1x" aria-hidden="true"></i><span> $!{article.createdDate}</span></li>
             <li><i class="fa fa-eye" aria-hidden="true"></i><span>$!{articleClickCount}</span></li>
             <li><i class="fa fa-list fa-1x" aria-hidden="true"></i><span>$!{article.category}</span></li>
             <li><i class="fa fa-tags fa-1x" aria-hidden="true"></i>
@@ -52,7 +53,7 @@
               #else
               <div><a href="/like/$!{article.id}"><i class="fa fa-thumbs-o-up fa-3x" aria-hidden="true"></i></a></div>
               #end
-              <div class="likeCount">赞($!{likeCount})</div>
+              <div class="likeCount">$!{likeCount}</div>
             </div>
             <div class="dislike">
               #if($liked < 0)
@@ -60,12 +61,12 @@
               #else
               <div><a href="/dislike/$!{article.id}"><i class="fa fa-thumbs-o-down fa-3x" aria-hidden="true"></i></a></div>
               #end
-              <div class="disLikeCount">踩($!{dislikeCount})</div>
+              <div class="disLikeCount">$!{dislikeCount}</div>
             </div>
           </div>
         </div>
         <hr>
-        <div class="title"><i class="fa fa-comment-o fa-2x" aria-hidden="true"></i><span>已有$!{commentsCount}条评论</span></div>
+        <div class="title"><i class="fa fa-comment-o fa-2x" aria-hidden="true"></i><span>$!{commentsCount} Comments</span></div>
         <hr>
         <div class="commentList">
           <ul>
@@ -80,8 +81,8 @@
                   <div class="commentContent col-md-9"><span>$!{vo.comment.content}</span></div>
                 </div>
                 <div class="commentFooter">
-                  <div class="commentDate"><span>发布于 $date.format('yyyy-MM-dd HH:mm:ss', $!{vo.comment.createdDate})</span></div>
-                  <div class="answer"><a href="">回复</a></div>
+                  <div class="commentDate"><span>$!{vo.comment.createdDate}</span></div>
+                  <div class="answer"><a href="">Reply</a></div>
                 </div>
               </div>
             </li>
@@ -89,13 +90,13 @@
             #end
           </ul>
         </div>
-        <div class="title"><i class="fa fa-edit fa-2x" aria-hidden="true"></i><span>添加新评论</span></div>
+        <div class="title"><i class="fa fa-edit fa-2x" aria-hidden="true"></i><span>Add Comment</span></div>
         <hr>
         <div class="commentWapper row">
           <div class="editComment col-md-11">
             <form action="/addComment/$!{article.id}"  method = "get">
               <textarea name="content" id="content" style="font-style: italic;width:100%;height: 115px"></textarea>
-              <button  type="submit" class="btn btn-default">提交评论</button>
+              <button  type="submit" class="btn btn-default">Submit</button>
             </form>
           </div>
         </div>

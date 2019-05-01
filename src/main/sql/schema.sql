@@ -30,5 +30,16 @@ CREATE TABLE `article` (
   `category` varchar(32) not null
 ) ENGINE=InnoDB DEFAULT charset=utf8;
 
+CREATE TABLE `tag` (
+  `id` int not null auto_increment primary key,
+  `name` varchar(255) not null,
+  `count` int
+) ENGINE=InnoDB DEFAULT charset=utf8;
 
-
+CREATE TABLE `article_tag` (
+  `id` int not null auto_increment primary key,
+  `article_id` int not null,
+  `tag_id` int not null,
+  FOREIGN KEY (article_id) references article(id),
+  FOREIGN KEY (tag_id) references tag(id)
+) ENGINE=InnoDB DEFAULT charset=utf8;

@@ -11,7 +11,7 @@
 </head>
 <body>
 <header class="row">
-    <div class="col-md-2 col-md-offset-1 row logo"><a href="/index">tuzhenyu</a></div>
+    <div class="col-md-2 col-md-offset-1 row logo"><a href="/index">$!{username}</a></div>
     <div class="col-md-5 col-md-offset-4 navigation">
         <ul class="row">
             <li class="col-md-2"><a id="home" href="/index"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
@@ -19,8 +19,9 @@
             <li class="col-md-2"><a id="life" href="/about"><i class="fa fa-heart" aria-hidden="true"></i>About</a></li>
             <li class="col-md-2"><a id="about" href="/links"><i class="fa fa-th-large" aria-hidden="true"></i>Links</a></li>
             #if($create > 0)
-            <li class="col-md-2"><a id="create" href="/create"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
+            <li class="col-md-2"><a id="create" href="/create"><i class="fa fa-plus-circle" aria-hidden="true">New</i></a></li>
             #end
+            <li class="col-md-2"><a id="logout" href="/logout"><i class="fa fa-close" aria-hidden="true">Logout</i></a> </li>
         </ul>
     </div>
 </header>

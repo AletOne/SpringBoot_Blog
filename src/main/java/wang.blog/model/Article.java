@@ -7,7 +7,7 @@ public class Article {
     private String title;
     private String description;
     private String content;
-    private Date createDate;
+    private Date createdDate;
     private int commentCount;
     private String category;
 
@@ -43,12 +43,12 @@ public class Article {
         this.content = content;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreatedDate(Date createDate) {
+        this.createdDate = createDate;
     }
 
     public int getCommentCount() {

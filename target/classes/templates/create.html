@@ -11,7 +11,7 @@
 </head>
 <body>
 <header class="row">
-    <div class="col-md-2 col-md-offset-1 row logo"><a href="/index">tuzhenyu</a></div>
+    <div class="col-md-2 col-md-offset-1 row logo"><a href="/index">$!{username}</a></div>
     <div class="col-md-5 col-md-offset-4 navigation">
         <ul class="row">
             <li class="col-md-2"><a id="home" href="/index"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
@@ -25,7 +25,7 @@
     </div>
 </header>
 <div id="layout">
-    <form action="/articleAdd"  method = "post">
+    <form action="/addArticle"  method = "post">
         <div class="title option"><label>Title</label><input type="text" class="form-control" id="title" name="title"></div>
         <div class="row categoryTag">
             <div class="col-md-6"><div><label>Category</label></div>
@@ -33,15 +33,15 @@
                     <option value="Java">Java</option>
                     <option value="Web">Web</option>
                     <option value="Linux">Linux</option>
-                    <option value="分布式系统">分布式系统</option>
-                    <option value="数据库">数据库</option>
-                    <option value="算法">算法</option>
-                    <option value="其它">其它</option>
+                    <option value="分布式系统">Distributed System</option>
+                    <option value="数据库">Database</option>
+                    <option value="算法">Algorithm</option>
+                    <option value="其它">Other</option>
                 </select>
             </div>
             <div class="col-md-6"><label>Tag</label><input type="text" class="form-control" id="tag" name="tag"></div>
         </div>
-        <div class="describe option"><label>Describe</label><input type="text" class="form-control" id="describe" name="describe"></div>
+        <div class="describe option"><label>Description</label><input type="text" class="form-control" id="Description" name="description"></div>
         <div class="option"><label>Content</label></div>
         <div class="row">
             <div id="test-editormd">
